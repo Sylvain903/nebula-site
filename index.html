@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>NÉBULA CRÉATION | Portail</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; height: 100%; width: 100%;
+            background: #000; color: #fff; font-family: 'Arial', sans-serif;
+            overflow: hidden; /* On bloque le scroll pour le moment */
+        }
 
+        /* Effet de zoom lent pour donner de la vie */
+        .main-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('accueilnebula.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        /* Overlay sombre pour faire ressortir le texte */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+
+        /* Zone des boutons sur le reflet */
+        .action-zone {
+            margin-top: 250px; /* On descend vers le reflet de ton image */
+            display: flex; gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px; width: 200px;
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            background: rgba(0, 150, 255, 0.2);
+            border-color: #0096ff;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 150, 255, 0.4);
+        }
+
+        .card h3 { margin: 0 0 10px 0; font-size: 16px; letter-spacing: 1px; }
+        .card p { font-size: 12px; color: #ccc; margin: 0; }
+
+        /* Bouton spécial Luciferium */
+        .card.lucifer { border-color: #ff4500; }
+        .card.lucifer:hover { background: rgba(255, 69, 0, 0.2); border-color: #ff4500; box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4); }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-bg"></div>
+
+    <div class="overlay">
+        <div class="action-zone">
+            <div class="card">
+                <h3>FORGE HARDWARE</h3>
+                <p>Montage Tours & Watercooling</p>
+            </div>
+            <div class="card">
+                <h3>CLINIQUE OS</h3>
+                <p>Dépannage & Optimisation Windows</p>
+            </div>
+            <div class="card">
+                <h3>MULTIMÉDIA</h3>
+                <p>Box, Hi-Fi & Vidéo</p>
+            </div>
+            <div class="card lucifer" onclick="window.location.href='https://luciferium-site.vercel.app/'">
+                <h3>LUCIFERIUM</h3>
+                <p>Accès Projet Android</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
