@@ -15,13 +15,12 @@
  .main-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* On force Vercel à aller chercher l'image en direct sur les serveurs de GitHub */
-        background: url('/bg.png') no-repeat center center;
+            /* Lien absolu : on force la lecture directe sur ton propre nom de domaine */
+            background: url('https://nebulacreation.fr/bg.png') no-repeat center center;
             background-size: cover;
             z-index: -1;
             animation: fadeIn 3s ease-in;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
