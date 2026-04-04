@@ -116,14 +116,23 @@
         /* Au survol de Lucifer, le texte change aussi de couleur */
         .card.lucifer:hover p {
             color: rgba(255, 100, 100, 1);
-        }
+        }    
         /* 📱 OPTIMISATION POUR MOBILE (S24 ULTRA & CO) */
         @media screen and (max-width: 768px) {
-            .overlay {
-                justify-content: center; /* Centre le contenu verticalement sur mobile */
-                padding-bottom: 20px;
-                overflow-y: auto; /* Permet de scroller si les icônes sont trop grandes */
+            
+            /* AJOUTE CES LIGNES ICI POUR LE FOND : */
+            .main-bg {
+                background-size: contain; /* L'image s'affiche en entier */
+                background-position: top center; /* Calée en haut */
+                background-attachment: scroll;
             }
+
+            .overlay {
+                justify-content: center; 
+                padding-bottom: 20px;
+                overflow-y: auto; 
+            }
+            /* ... le reste ne change pas ... */
 
             .action-zone {
                 gap: 15px; /* Réduit l'espace entre les icônes */
