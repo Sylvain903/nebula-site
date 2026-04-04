@@ -120,42 +120,47 @@
         /* 📱 OPTIMISATION POUR MOBILE (S24 ULTRA & CO) */
         @media screen and (max-width: 768px) {
             
-            /* AJOUTE CES LIGNES ICI POUR LE FOND : */
+            /* 1. ON APPELLE LA NOUVELLE IMAGE PORTRAIT */
             .main-bg {
-                background-size: cover; /* On repasse en cover pour remplir tout l'écran */
-                background-position: 35% center; /* On décale l'image à gauche pour centrer le texte "Nébula" sur mobile */
+                background-image: url('bg-mobile.png'); 
+                background-size: cover; 
+                background-position: center top; 
                 background-attachment: scroll;
             }
 
-           .overlay {
-                justify-content: flex-start; /* On commence plus haut */
-                padding-top: 100px; /* On laisse de la place pour le logo Nébula */
-                height: 100vh; /* On force la hauteur totale du téléphone */
+            /* 2. ON POUSSE LES ICÔNES VERS LE BAS (DANS LA ZONE SOMBRE) */
+            .overlay {
+                justify-content: flex-start; 
+                padding-top: 280px; /* On laisse de la place pour ton beau logo en haut */
+                height: 100vh;
+                overflow-y: auto; 
             }
 
+            /* 3. ON RANGE LES ICÔNES EN GRILLE 2x2 */
             .action-zone {
-                gap: 40px 20px; /* On augmente l'espace vertical (40px) entre les lignes */
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                margin-top: 60px; /* On descend les icônes pour ne pas cacher "Nébula Création" */
+                gap: 25px 20px; 
+                padding: 10px;
+                display: grid; 
+                grid-template-columns: repeat(2, 1fr); 
+                width: 95%; 
             }
+
             .card {
-                width: 100%; /* S'adapte à la grille */
-                opacity: 1; /* Pleine visibilité sur mobile (pas de hover) */
+                width: 100%; 
+                opacity: 1; 
             }
 
             .card img {
-                width: 120px; /* On réduit un peu la taille pour que 2 passent côte à côte */
+                width: 120px; 
                 margin-bottom: 10px;
             }
 
             .card h3 {
-                font-size: 14px; /* Texte un peu plus compact */
+                font-size: 14px; 
             }
 
             .card p {
-                font-size: 10px; /* Description plus petite */
-                display: none; /* OPTION : Masquer le texte descriptif sur mobile pour gagner de la place */
+                display: none; /* On cache le petit texte sur mobile pour garder ça épuré */
             }
         }
 
