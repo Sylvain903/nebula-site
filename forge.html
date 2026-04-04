@@ -7,14 +7,11 @@
     <style>
         body, html {
             margin: 0; padding: 0; 
-            background-color: #030308; /* NOIR ABSOLU POUR LE CONTRASTE */
+            background-color: #030308;
             color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             scroll-behavior: smooth; overflow-x: hidden;
         }
 
-        /* PLUS D'IMAGE DE FOND - JUSTE LE NOIR */
-
-        /* BOUTON RETOUR TACTIQUE */
         .back-btn {
             position: fixed; top: 20px; left: 20px;
             padding: 10px 20px; background: rgba(0, 210, 255, 0.1);
@@ -25,9 +22,8 @@
         }
         .back-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 15px #00d2ff; }
 
-        /* CONTENU PRINCIPAL */
         .container {
-            max-width: 1100px; margin: 0 auto; padding: 100px 20px;
+            max-width: 1100px; margin: 0 auto; padding: 80px 20px;
             text-align: center;
         }
 
@@ -40,20 +36,17 @@
         
         .subtitle { letter-spacing: 4px; color: #666; font-size: 14px; margin-top: 10px; }
 
-        /* ZONE CENTRALE D'ÉNERGIE */
         .forge-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
             align-items: center; justify-items: center;
         }
 
-        /* 1. EFFET : LA PROJECTION D'AIRFLOW ET DE CHALEUR */
         .pc-core {
             position: relative;
             display: flex; justify-content: center; align-items: center;
             width: 400px; height: 400px;
         }
 
-        /* Particules de chaleur montantes (simulées en CSS) */
         .pc-core::before {
             content: ''; position: absolute; bottom: 50%; left: 50%;
             width: 200px; height: 300px;
@@ -70,7 +63,6 @@
             100% { transform: translateX(-50%) translateY(-100px); opacity: 0; }
         }
 
-        /* 2. EFFET : LE PC RÉACTEUR (PULSE) */
         .pc-image {
             width: 100%; height: auto;
             position: relative; z-index: 2;
@@ -84,10 +76,7 @@
             50% { filter: drop-shadow(0 0 30px rgba(255, 165, 0, 1)); }
             100% { filter: drop-shadow(0 0 15px rgba(255, 100, 0, 0.6)); }
         }
-        
-        .pc-core:hover .pc-image { transform: scale(1.03); }
 
-        /* Sol lumineux projeté */
         .sol-light {
             position: absolute; bottom: 0; left: 50%;
             width: 300px; height: 30px;
@@ -96,29 +85,22 @@
             filter: blur(10px); z-index: 0;
         }
 
-        /* 3. EFFET : BLOC TEXTE GLASSMORPHISM (DISSOUDRE DANS LE NOIR) */
         .info-card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(15px);
             padding: 40px; border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: left;
-            transition: border-color 0.4s;
         }
-        
-        .info-card:hover { border-color: rgba(255, 140, 0, 0.3); }
 
-        .info-card h2 { color: #fff; text-transform: uppercase; letter-spacing: 3px; font-size: 20px; margin-top: 0; }
+        .info-card h2 { color: #fff; text-transform: uppercase; letter-spacing: 3px; font-size: 20px; margin-bottom: 30px; }
         
-        .feature-item { display: flex; align-items: flex-start; margin-bottom: 25px; gap: 15px; }
-        .feature-icon { color: #00d2ff; font-size: 20px; margin-top: 2px; transition: color 0.4s; }
-        
-        .info-card:hover .feature-icon { color: #ff8c00; } /* Les icônes passent au rouge Forge au survol */
-        
-        .feature-text strong { color: #fff; }
-        .feature-text small { color: #aaa; }
+        /* ICI ON CORRIGE LES CLASSES POUR LE CONTENU */
+        .feature { display: flex; align-items: flex-start; margin-bottom: 25px; gap: 15px; }
+        .feature-icon { font-size: 24px; text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
+        .feature-text strong { display: block; color: #00d2ff; margin-bottom: 5px; }
+        .feature-text span { color: #aaa; font-size: 14px; line-height: 1.5; }
 
-        /* MOBILE */
         @media (max-width: 900px) {
             .forge-grid { grid-template-columns: 1fr; }
             .pc-core { width: 300px; height: 300px; }
@@ -137,33 +119,44 @@
         </div>
 
         <div class="forge-grid">
-            
             <div class="pc-core">
                 <img src="https://nebulacreation.fr/Iforge.png" class="pc-image" alt="Setup Nébula">
                 <div class="sol-light"></div>
             </div>
 
             <div class="info-card">
-                <h2>L'Ingénierie Masterclass</h2>
+                <h2>Votre PC sur mesure</h2>
                 
-                <div class="feature-item">
-                    <span class="feature-icon">⚙️</span>
-                    <div class="feature-text"><strong>Synergie Custom</strong><br><small>Sélection chirurgicale des composants pour une stabilité totale.</small></div>
+                <div class="feature">
+                    <div class="feature-icon">🛠️</div>
+                    <div class="feature-text">
+                        <strong>Configuration Personnalisée</strong>
+                        <span>Je choisis les meilleurs composants pour créer l'ordinateur qui correspond exactement à vos besoins et à votre budget.</span>
+                    </div>
                 </div>
 
-                <div class="feature-item">
-                    <span class="feature-icon">⚡</span>
-                    <div class="feature-text"><strong>Tuning CPU/GPU</strong><br><small>Undervolting précis & courbes d'overclocking Ryzen 9 Master.</small></div>
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-text">
+                        <strong>Puissance & Rapidité</strong>
+                        <span>Chaque réglage est optimisé pour obtenir le maximum de performance sans que le PC ne chauffe ou ne ralentisse.</span>
+                    </div>
                 </div>
 
-                <div class="feature-item">
-                    <span class="feature-icon">🌡️</span>
-                    <div class="feature-text"><strong>Thermique Silencieuse</strong><br><small>Airflow millimétré ou Watercooling Custom complexe.</small></div>
+                <div class="feature">
+                    <div class="feature-icon">🤫</div>
+                    <div class="feature-text">
+                        <strong>Silence & Refroidissement</strong>
+                        <span>Un montage soigné et des réglages précis pour un ordinateur puissant qui reste parfaitement silencieux.</span>
+                    </div>
                 </div>
 
-                <div class="feature-item">
-                    <span class="feature-icon">🛡️</span>
-                    <div class="feature-text"><strong>Validation Extrême</strong><br><small>12h de stress-test intensifs avant livraison.</small></div>
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <div class="feature-text">
+                        <strong>Prêt à l'emploi</strong>
+                        <span>Votre machine est testée pendant 12h et livrée clé en main : vous n'avez plus qu'à l'allumer et en profiter.</span>
+                    </div>
                 </div>
             </div>
         </div>
