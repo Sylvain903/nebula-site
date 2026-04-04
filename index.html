@@ -117,6 +117,41 @@
         .card.lucifer:hover p {
             color: rgba(255, 100, 100, 1);
         }
+        /* 📱 OPTIMISATION POUR MOBILE (S24 ULTRA & CO) */
+        @media screen and (max-width: 768px) {
+            .overlay {
+                justify-content: center; /* Centre le contenu verticalement sur mobile */
+                padding-bottom: 20px;
+                overflow-y: auto; /* Permet de scroller si les icônes sont trop grandes */
+            }
+
+            .action-zone {
+                gap: 15px; /* Réduit l'espace entre les icônes */
+                padding: 10px;
+                display: grid; /* On passe en mode grille */
+                grid-template-columns: repeat(2, 1fr); /* 2 icônes par ligne (Carré de 2x2) */
+                width: 95%; /* Prend presque toute la largeur du téléphone */
+            }
+
+            .card {
+                width: 100%; /* S'adapte à la grille */
+                opacity: 1; /* Pleine visibilité sur mobile (pas de hover) */
+            }
+
+            .card img {
+                width: 120px; /* On réduit un peu la taille pour que 2 passent côte à côte */
+                margin-bottom: 10px;
+            }
+
+            .card h3 {
+                font-size: 14px; /* Texte un peu plus compact */
+            }
+
+            .card p {
+                font-size: 10px; /* Description plus petite */
+                display: none; /* OPTION : Masquer le texte descriptif sur mobile pour gagner de la place */
+            }
+        }
 
     </style>
 </head>
