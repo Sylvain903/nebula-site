@@ -1,1 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORGE HARDWARE | Nébula Création</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; background-color: #050510;
+            color: #fff; font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
 
+        /* FOND FLOU POUR LE FOCUS */
+        .main-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://nebulacreation.fr/bg.png') no-repeat center center;
+            background-size: cover; z-index: -1; 
+            filter: brightness(0.2) blur(8px);
+        }
+
+        /* BOUTON RETOUR TACTIQUE */
+        .back-btn {
+            position: fixed; top: 20px; left: 20px;
+            padding: 12px 25px; background: rgba(0, 210, 255, 0.1);
+            border: 1px solid #00d2ff; color: #00d2ff;
+            text-decoration: none; border-radius: 50px;
+            text-transform: uppercase; font-size: 11px; letter-spacing: 2px;
+            transition: all 0.3s ease; z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        .back-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 20px #00d2ff; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+
+        .header-section { text-align: center; margin-bottom: 60px; }
+        
+        h1 { 
+            font-size: clamp(30px, 5vw, 55px); color: #00d2ff; letter-spacing: 8px;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5); margin: 0;
+        }
+
+        /* GRILLE DE PRÉSENTATION */
+        .forge-grid {
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px;
+            align-items: center;
+        }
+
+        /* VITRINE IMAGE */
+        .pc-showcase {
+            position: relative; border-radius: 20px;
+            overflow: hidden; border: 1px solid rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.2);
+        }
+        .pc-showcase img { width: 100%; display: block; transition: transform 0.5s; }
+        .pc-showcase:hover img { transform: scale(1.03); }
+
+        /* BLOC TEXTE GLASSMORPHISM */
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-card h2 { color: #00d2ff; font-size: 24px; margin-bottom: 20px; border-bottom: 1px solid rgba(0, 210, 255, 0.3); padding-bottom: 10px; }
+        
+        .feature-item { display: flex; align-items: center; margin-bottom: 20px; gap: 15px; }
+        .feature-icon { color: #00d2ff; font-size: 20px; }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .forge-grid { grid-template-columns: 1fr; }
+            h1 { margin-top: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-bg"></div>
+
+    <a href="index.html" class="back-btn">← Cockpit</a>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>FORGE HARDWARE</h1>
+            <p style="letter-spacing: 3px; color: #aaa; margin-top: 10px;">L'ART DU MONTAGE HAUTE PERFORMANCE</p>
+        </div>
+
+        <div class="forge-grid">
+            <div class="pc-showcase">
+                <img src="https://nebulacreation.fr/Iforge.png" alt="Setup Nébula">
+            </div>
+
+            <div class="info-card">
+                <h2>L'Expertise</h2>
+                
+                <div class="feature-item">
+                    <span class="feature-icon">⚙️</span>
+                    <div><strong>Architecture Custom</strong><br><small>Composants sélectionnés pour une synergie totale.</small></div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <div><strong>Tuning CPU/GPU</strong><br><small>Undervolting et Overclocking pour un ratio perf/chauffe optimal.</small></div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">💧</span>
+                    <div><strong>Gestion Thermique</strong><br><small>Airflow optimisé ou Watercooling Custom.</small></div>
+                </div>
+
+                <div class="feature-item">
+                    <span class="feature-icon">🛡️</span>
+                    <div><strong>Zéro Compromis</strong><br><small>Câblage chirurgical et tests de stabilité extrêmes.</small></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
