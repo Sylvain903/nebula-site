@@ -106,6 +106,17 @@
             .pc-core { width: 300px; height: 300px; }
             .header-section { margin-top: 40px; }
         }
+        /* PETITE ANIMATION DE DISCRIPTION QUI APPARAIT AU SCROLL */
+.info-card {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.8s ease-out;
+}
+
+.info-card.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
     </style>
 </head>
 <body>
