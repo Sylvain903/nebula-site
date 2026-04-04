@@ -7,18 +7,17 @@
     <style>
         body, html {
             margin: 0; padding: 0; height: 100%; width: 100%;
-            /* On enlève le fond noir absolu du body pour laisser voir l'image */
-            background-color: #111; 
-            color: #fff; font-family: 'Segoe UI', sans-serif;
+            background-color: #050510; 
+            color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
         }
 
+        /* FOND NÉBULA IMMERSIF */
         .main-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: url('https://nebulacreation.fr/bg.png') no-repeat center center;
-            background-color: #000; 
-            background-size: cover; /* On remet l'immersion totale ! */
+            background-size: cover;
             z-index: 0; 
             animation: fadeIn 3s ease-in;
         }
@@ -28,51 +27,87 @@
             to { opacity: 1; }
         }
 
+        /* COUCHE D'INTERACTION */
         .overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.1); 
             display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-            padding-bottom: 60px;
-            /* CORRECTION : L'overlay est au-dessus de l'image (niveau 1) */
+            padding-bottom: 40px;
             z-index: 1; 
         }
 
+        /* DASHBOARD TACTIQUE */
         .action-zone {
-            display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;
+            display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;
             padding: 20px;
-            /* CORRECTION : Les boutons sont tout au-dessus (niveau 2) */
             z-index: 2; 
         }
 
+        /* STYLE DES BOUTONS OVALES */
         .card {
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(0, 150, 255, 0.5);
-            padding: 15px; width: 200px;
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 150, 255, 0.3);
+            padding: 20px 10px; 
+            width: 180px;
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
         }
 
+        /* L'IMAGE 512x512 OVALE */
+        .card img {
+            width: 100px; /* Taille idéale sur PC */
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+            transition: transform 0.4s ease;
+        }
+
+        /* TEXTES */
+        .card h3 { 
+            margin: 0 0 5px 0; 
+            font-size: 14px; 
+            color: #00d2ff; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+        
+        .card p { 
+            font-size: 11px; 
+            color: rgba(255, 255, 255, 0.7); 
+            margin: 0; 
+            line-height: 1.2; 
+        }
+
+        /* EFFET HOVER (SURVOL SOURIS) */
         .card:hover {
-            border-color: #0096ff;
-            transform: translateY(-10px);
-            box-shadow: 0 0 25px rgba(0, 150, 255, 0.5);
-            background: rgba(0, 50, 100, 0.3);
+            border-color: #00d2ff;
+            transform: translateY(-15px);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
+            background: rgba(0, 50, 100, 0.4);
         }
 
-        .card h3 { margin: 0 0 8px 0; font-size: 16px; color: #0096ff; text-transform: uppercase; }
-        .card p { font-size: 12px; color: #fff; margin: 0; line-height: 1.3; }
+        .card:hover img {
+            transform: scale(1.1);
+        }
 
-        .card.lucifer { border-color: #ff4500; }
-        .card.lucifer h3 { color: #ff4500; }
+        /* STYLE SPÉCIFIQUE LUCIFERIUM (ROUGE) */
+        .card.lucifer { border-color: rgba(255, 69, 0, 0.4); }
+        .card.lucifer h3 { color: #ff4500; text-shadow: 0 0 10px rgba(255, 69, 0, 0.5); }
+        
         .card.lucifer:hover { 
             border-color: #ff4500; 
-            box-shadow: 0 0 25px rgba(255, 69, 0, 0.5);
-            background: rgba(100, 30, 0, 0.3);
+            box-shadow: 0 0 30px rgba(255, 69, 0, 0.6);
+            background: rgba(80, 20, 0, 0.4);
         }
+
     </style>
 </head>
 <body>
@@ -81,22 +116,31 @@
 
     <div class="overlay">
         <div class="action-zone">
-            <div class="card">
+            
+            <a href="#forge" class="card">
+                <img src="images/Iforge.png" alt="Forge Hardware">
                 <h3>FORGE HARDWARE</h3>
                 <p>Montage Tours & Optimisation Custom</p>
-            </div>
-            <div class="card">
+            </a>
+
+            <a href="#clinique" class="card">
+                <img src="images/iclinique.png" alt="Clinique OS">
                 <h3>CLINIQUE OS</h3>
                 <p>Dépannage & Tuning Windows 10/11</p>
-            </div>
-            <div class="card">
+            </a>
+
+            <a href="#multimedia" class="card">
+                <img src="images/imultimedia.png" alt="Multimédia">
                 <h3>MULTIMÉDIA</h3>
                 <p>Hi-Fi, Box & Domotique Pro</p>
-            </div>
-            <div class="card lucifer" onclick="window.location.href='https://luciferium-site.vercel.app/'">
+            </a>
+
+            <a href="https://luciferium-site.vercel.app/" class="card lucifer">
+                <img src="images/iluciferium.png" alt="Luciferium">
                 <h3>LUCIFERIUM</h3>
                 <p>Accès Projet & Communauté</p>
-            </div>
+            </a>
+
         </div>
     </div>
 
