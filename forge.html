@@ -6,113 +6,164 @@
     <title>FORGE HARDWARE | Nébula Création</title>
     <style>
         body, html {
-            margin: 0; padding: 0; background-color: #050510;
-            color: #fff; font-family: 'Segoe UI', sans-serif;
-            overflow-x: hidden;
+            margin: 0; padding: 0; 
+            background-color: #030308; /* NOIR ABSOLU POUR LE CONTRASTE */
+            color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth; overflow-x: hidden;
         }
 
-        /* FOND FLOU POUR LE FOCUS */
-        .main-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://nebulacreation.fr/bg.png') no-repeat center center;
-            background-size: cover; z-index: -1; 
-            filter: brightness(0.2) blur(8px);
-        }
+        /* PLUS D'IMAGE DE FOND - JUSTE LE NOIR */
 
         /* BOUTON RETOUR TACTIQUE */
         .back-btn {
             position: fixed; top: 20px; left: 20px;
-            padding: 12px 25px; background: rgba(0, 210, 255, 0.1);
+            padding: 10px 20px; background: rgba(0, 210, 255, 0.1);
             border: 1px solid #00d2ff; color: #00d2ff;
-            text-decoration: none; border-radius: 50px;
-            text-transform: uppercase; font-size: 11px; letter-spacing: 2px;
+            text-decoration: none; border-radius: 5px;
+            text-transform: uppercase; font-size: 12px; letter-spacing: 2px;
             transition: all 0.3s ease; z-index: 100;
-            backdrop-filter: blur(5px);
         }
-        .back-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 20px #00d2ff; }
+        .back-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 15px #00d2ff; }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+        /* CONTENU PRINCIPAL */
+        .container {
+            max-width: 1100px; margin: 0 auto; padding: 100px 20px;
+            text-align: center;
+        }
 
-        .header-section { text-align: center; margin-bottom: 60px; }
+        .header-section { margin-bottom: 60px; }
         
         h1 { 
             font-size: clamp(30px, 5vw, 55px); color: #00d2ff; letter-spacing: 8px;
             text-shadow: 0 0 20px rgba(0, 210, 255, 0.5); margin: 0;
         }
-
-        /* GRILLE DE PRÉSENTATION */
-        .forge-grid {
-            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px;
-            align-items: center;
-        }
-
-        /* VITRINE IMAGE */
-        .pc-showcase {
-            position: relative; border-radius: 20px;
-            overflow: hidden; border: 1px solid rgba(0, 210, 255, 0.3);
-            box-shadow: 0 0 40px rgba(0, 210, 255, 0.2);
-        }
-        .pc-showcase img { width: 100%; display: block; transition: transform 0.5s; }
-        .pc-showcase:hover img { transform: scale(1.03); }
-
-        /* BLOC TEXTE GLASSMORPHISM */
-        .info-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            padding: 40px; border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .info-card h2 { color: #00d2ff; font-size: 24px; margin-bottom: 20px; border-bottom: 1px solid rgba(0, 210, 255, 0.3); padding-bottom: 10px; }
         
-        .feature-item { display: flex; align-items: center; margin-bottom: 20px; gap: 15px; }
-        .feature-icon { color: #00d2ff; font-size: 20px; }
+        .subtitle { letter-spacing: 4px; color: #666; font-size: 14px; margin-top: 10px; }
+
+        /* ZONE CENTRALE D'ÉNERGIE */
+        .forge-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            align-items: center; justify-items: center;
+        }
+
+        /* 1. EFFET : LA PROJECTION D'AIRFLOW ET DE CHALEUR */
+        .pc-core {
+            position: relative;
+            display: flex; justify-content: center; align-items: center;
+            width: 400px; height: 400px;
+        }
+
+        /* Particules de chaleur montantes (simulées en CSS) */
+        .pc-core::before {
+            content: ''; position: absolute; bottom: 50%; left: 50%;
+            width: 200px; height: 300px;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(255, 69, 0, 0.2) 0%, rgba(255, 69, 0, 0) 70%);
+            filter: blur(20px);
+            animation: heatRise 4s infinite linear;
+            z-index: 1;
+        }
+
+        @keyframes heatRise {
+            0% { transform: translateX(-50%) translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(-50%) translateY(-100px); opacity: 0; }
+        }
+
+        /* 2. EFFET : LE PC RÉACTEUR (PULSE) */
+        .pc-image {
+            width: 100%; height: auto;
+            position: relative; z-index: 2;
+            filter: drop-shadow(0 0 15px rgba(255, 100, 0, 0.6));
+            animation: reactorPulse 3s infinite ease-in-out;
+            transition: transform 0.4s ease;
+        }
+        
+        @keyframes reactorPulse {
+            0% { filter: drop-shadow(0 0 15px rgba(255, 100, 0, 0.6)); }
+            50% { filter: drop-shadow(0 0 30px rgba(255, 165, 0, 1)); }
+            100% { filter: drop-shadow(0 0 15px rgba(255, 100, 0, 0.6)); }
+        }
+        
+        .pc-core:hover .pc-image { transform: scale(1.03); }
+
+        /* Sol lumineux projeté */
+        .sol-light {
+            position: absolute; bottom: 0; left: 50%;
+            width: 300px; height: 30px;
+            transform: translateX(-50%);
+            background: radial-gradient(ellipse at center, rgba(255, 140, 0, 0.4) 0%, rgba(0, 0, 0, 0) 80%);
+            filter: blur(10px); z-index: 0;
+        }
+
+        /* 3. EFFET : BLOC TEXTE GLASSMORPHISM (DISSOUDRE DANS LE NOIR) */
+        .info-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            padding: 40px; border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+            transition: border-color 0.4s;
+        }
+        
+        .info-card:hover { border-color: rgba(255, 140, 0, 0.3); }
+
+        .info-card h2 { color: #fff; text-transform: uppercase; letter-spacing: 3px; font-size: 20px; margin-top: 0; }
+        
+        .feature-item { display: flex; align-items: flex-start; margin-bottom: 25px; gap: 15px; }
+        .feature-icon { color: #00d2ff; font-size: 20px; margin-top: 2px; transition: color 0.4s; }
+        
+        .info-card:hover .feature-icon { color: #ff8c00; } /* Les icônes passent au rouge Forge au survol */
+        
+        .feature-text strong { color: #fff; }
+        .feature-text small { color: #aaa; }
 
         /* MOBILE */
         @media (max-width: 900px) {
             .forge-grid { grid-template-columns: 1fr; }
-            h1 { margin-top: 40px; }
+            .pc-core { width: 300px; height: 300px; }
+            .header-section { margin-top: 40px; }
         }
     </style>
 </head>
 <body>
-
-    <div class="main-bg"></div>
 
     <a href="index.html" class="back-btn">← Cockpit</a>
 
     <div class="container">
         <div class="header-section">
             <h1>FORGE HARDWARE</h1>
-            <p style="letter-spacing: 3px; color: #aaa; margin-top: 10px;">L'ART DU MONTAGE HAUTE PERFORMANCE</p>
+            <div class="subtitle">DÉPLOYER LA PUISSANCE BRUTE</div>
         </div>
 
         <div class="forge-grid">
-            <div class="pc-showcase">
-                <img src="https://nebulacreation.fr/Iforge.png" alt="Setup Nébula">
+            
+            <div class="pc-core">
+                <img src="https://nebulacreation.fr/Iforge.png" class="pc-image" alt="Setup Nébula">
+                <div class="sol-light"></div>
             </div>
 
             <div class="info-card">
-                <h2>L'Expertise</h2>
+                <h2>L'Ingénierie Masterclass</h2>
                 
                 <div class="feature-item">
                     <span class="feature-icon">⚙️</span>
-                    <div><strong>Architecture Custom</strong><br><small>Composants sélectionnés pour une synergie totale.</small></div>
+                    <div class="feature-text"><strong>Synergie Custom</strong><br><small>Sélection chirurgicale des composants pour une stabilité totale.</small></div>
                 </div>
 
                 <div class="feature-item">
                     <span class="feature-icon">⚡</span>
-                    <div><strong>Tuning CPU/GPU</strong><br><small>Undervolting et Overclocking pour un ratio perf/chauffe optimal.</small></div>
+                    <div class="feature-text"><strong>Tuning CPU/GPU</strong><br><small>Undervolting précis & courbes d'overclocking Ryzen 9 Master.</small></div>
                 </div>
 
                 <div class="feature-item">
-                    <span class="feature-icon">💧</span>
-                    <div><strong>Gestion Thermique</strong><br><small>Airflow optimisé ou Watercooling Custom.</small></div>
+                    <span class="feature-icon">🌡️</span>
+                    <div class="feature-text"><strong>Thermique Silencieuse</strong><br><small>Airflow millimétré ou Watercooling Custom complexe.</small></div>
                 </div>
 
                 <div class="feature-item">
                     <span class="feature-icon">🛡️</span>
-                    <div><strong>Zéro Compromis</strong><br><small>Câblage chirurgical et tests de stabilité extrêmes.</small></div>
+                    <div class="feature-text"><strong>Validation Extrême</strong><br><small>12h de stress-test intensifs avant livraison.</small></div>
                 </div>
             </div>
         </div>
