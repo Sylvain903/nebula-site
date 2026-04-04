@@ -7,12 +7,12 @@
     <style>
         body, html {
             margin: 0; padding: 0; 
-            background-color: #020508; /* Noir bleuté profond */
+            background-color: #020508; 
             color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             scroll-behavior: smooth; overflow-x: hidden;
         }
 
-        /* BOUTON RETOUR */
+        /* NAVIGATION & CONTACT */
         .back-btn {
             position: fixed; top: 20px; left: 20px;
             padding: 10px 20px; background: rgba(0, 210, 255, 0.1);
@@ -23,7 +23,6 @@
         }
         .back-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 15px #00d2ff; }
 
-        /* BOUTON CONTACT FLOTTANT */
         .contact-btn {
             position: fixed; bottom: 20px; right: 20px;
             padding: 12px 25px; background: #00d2ff;
@@ -34,13 +33,8 @@
             animation: pulseContact 2s infinite;
         }
         .contact-btn:hover { transform: scale(1.1); box-shadow: 0 0 25px #00d2ff; }
-        
-        @keyframes pulseContact {
-            0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 210, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
-        }
 
+        /* STRUCTURE */
         .container {
             max-width: 1100px; margin: 0 auto; padding: 60px 20px;
             text-align: center;
@@ -60,44 +54,27 @@
             align-items: center; justify-items: center;
         }
 
+        /* VISUEL CLINIQUE */
         .pc-core {
             position: relative;
             display: flex; justify-content: center; align-items: center;
             width: 100%; max-width: 400px; height: 350px;
         }
 
-        /* L'INDICATEUR DE SCROLL MOBILE */
-        .scroll-hint {
-            display: none;
-            color: #00d2ff;
-            font-size: 30px;
-            margin-top: -20px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px #00d2ff;
-        }
-
         .pc-image {
-            width: 100%; height: auto;
-            position: relative; z-index: 2;
+            width: 100%; height: auto; position: relative; z-index: 2;
             filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
             animation: clinicPulse 4s infinite ease-in-out;
         }
         
-        @keyframes clinicPulse {
-            0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5)); transform: scale(1); }
-            50% { filter: drop-shadow(0 0 35px rgba(0, 210, 255, 0.8)); transform: scale(1.02); }
-            100% { filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5)); transform: scale(1); }
-        }
-
-        /* Halo bleu au sol */
         .sol-light {
             position: absolute; bottom: 10%; left: 50%;
-            width: 250px; height: 20px;
-            transform: translateX(-50%);
+            width: 250px; height: 20px; transform: translateX(-50%);
             background: radial-gradient(ellipse at center, rgba(0, 210, 255, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
             filter: blur(10px); z-index: 0;
         }
 
+        /* TEXTES & CARTES */
         .info-card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(15px);
@@ -108,38 +85,49 @@
             opacity: 0;
         }
 
-        @keyframes slideIn {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .info-card h2 { color: #fff; text-transform: uppercase; letter-spacing: 2px; font-size: 20px; margin-bottom: 25px; margin-top: 0; }
+        .info-card h2 { color: #fff; text-transform: uppercase; letter-spacing: 2px; font-size: 20px; margin: 0 0 25px 0; }
+        
         .feature { display: flex; align-items: flex-start; margin-bottom: 20px; gap: 15px; }
         .feature-icon { font-size: 22px; text-shadow: 0 0 10px rgba(0, 210, 255, 0.3); }
         .feature-text strong { display: block; color: #00d2ff; margin-bottom: 3px; }
         .feature-text span { color: #aaa; font-size: 14px; line-height: 1.4; }
 
-        /* 📱 OPTIMISATION MOBILE */
-        @media (max-width: 900px) {
-            .container { padding-top: 80px; }
-            .forge-grid { grid-template-columns: 1fr; gap: 10px; }
-            .pc-core { height: 300px; }
-            .scroll-hint { 
-                display: block; 
-                animation: bounce 2s infinite;
-            }
-            .info-card { 
-                margin-top: 0px; 
-                width: 90%;
-                padding: 30px 20px;
-                box-sizing: border-box;
-            }
+        /* INDICATEUR DE SCROLL MOBILE */
+        .scroll-hint {
+            display: none; color: #00d2ff; font-size: 30px; 
+            margin: -20px 0 20px 0; text-shadow: 0 0 10px #00d2ff;
+        }
+
+        /* ANIMATIONS */
+        @keyframes clinicPulse {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5)); transform: scale(1); }
+            50% { filter: drop-shadow(0 0 35px rgba(0, 210, 255, 0.8)); transform: scale(1.02); }
+        }
+
+        @keyframes pulseContact {
+            0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 210, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-10px);}
             60% {transform: translateY(-5px);}
+        }
+
+        /* OPTIMISATION MOBILE */
+        @media (max-width: 900px) {
+            .container { padding-top: 80px; }
+            .forge-grid { grid-template-columns: 1fr; gap: 10px; }
+            .pc-core { height: 300px; }
+            .scroll-hint { display: block; animation: bounce 2s infinite; }
+            .info-card { width: 100%; padding: 30px 20px; box-sizing: border-box; }
         }
     </style>
 </head>
@@ -155,7 +143,6 @@
         </div>
 
         <div class="forge-grid">
-            
             <div class="pc-core">
                 <img src="iclinique.png" class="pc-image" alt="Clinique Nébula">
                 <div class="sol-light"></div>
