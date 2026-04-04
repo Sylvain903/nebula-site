@@ -122,26 +122,23 @@
             
             /* AJOUTE CES LIGNES ICI POUR LE FOND : */
             .main-bg {
-                background-size: contain; /* L'image s'affiche en entier */
-                background-position: top center; /* Calée en haut */
+                background-size: cover; /* On repasse en cover pour remplir tout l'écran */
+                background-position: 35% center; /* On décale l'image à gauche pour centrer le texte "Nébula" sur mobile */
                 background-attachment: scroll;
             }
 
-            .overlay {
-                justify-content: center; 
-                padding-bottom: 20px;
-                overflow-y: auto; 
+           .overlay {
+                justify-content: flex-start; /* On commence plus haut */
+                padding-top: 100px; /* On laisse de la place pour le logo Nébula */
+                height: 100vh; /* On force la hauteur totale du téléphone */
             }
-            /* ... le reste ne change pas ... */
 
             .action-zone {
-                gap: 15px; /* Réduit l'espace entre les icônes */
-                padding: 10px;
-                display: grid; /* On passe en mode grille */
-                grid-template-columns: repeat(2, 1fr); /* 2 icônes par ligne (Carré de 2x2) */
-                width: 95%; /* Prend presque toute la largeur du téléphone */
+                gap: 40px 20px; /* On augmente l'espace vertical (40px) entre les lignes */
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                margin-top: 60px; /* On descend les icônes pour ne pas cacher "Nébula Création" */
             }
-
             .card {
                 width: 100%; /* S'adapte à la grille */
                 opacity: 1; /* Pleine visibilité sur mobile (pas de hover) */
