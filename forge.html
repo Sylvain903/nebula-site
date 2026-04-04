@@ -85,17 +85,25 @@
             filter: blur(10px); z-index: 0;
         }
 
+        /* 🚀 MODIFICATION ICI : ANIMATION AUTOMATIQUE AU CHARGEMENT */
         .info-card {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(15px);
             padding: 40px; border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: left;
+            animation: slideIn 1s ease-out forwards;
+            animation-delay: 0.5s; /* Petit temps d'attente pour l'effet */
+            opacity: 0; 
         }
 
-        .info-card h2 { color: #fff; text-transform: uppercase; letter-spacing: 3px; font-size: 20px; margin-bottom: 30px; }
+        @keyframes slideIn {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .info-card h2 { color: #fff; text-transform: uppercase; letter-spacing: 3px; font-size: 20px; margin-bottom: 30px; margin-top: 0; }
         
-        /* ICI ON CORRIGE LES CLASSES POUR LE CONTENU */
         .feature { display: flex; align-items: flex-start; margin-bottom: 25px; gap: 15px; }
         .feature-icon { font-size: 24px; text-shadow: 0 0 10px rgba(0, 210, 255, 0.5); }
         .feature-text strong { display: block; color: #00d2ff; margin-bottom: 5px; }
@@ -106,17 +114,6 @@
             .pc-core { width: 300px; height: 300px; }
             .header-section { margin-top: 40px; }
         }
-        /* PETITE ANIMATION DE DISCRIPTION QUI APPARAIT AU SCROLL */
-.info-card {
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.8s ease-out;
-}
-
-.info-card.visible {
-    transform: translateY(0);
-    opacity: 1;
-}
     </style>
 </head>
 <body>
