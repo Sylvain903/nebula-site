@@ -163,6 +163,19 @@
                 display: none; /* On cache le petit texte sur mobile pour garder ça épuré */
             }
         }
+        /* 🔄 AJUSTEMENT PAYSAGE MOBILE (LANDSCAPE) */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            body, html {
+                overflow-y: auto; /* On autorise le défilement vertical */
+            }
+            .overlay {
+                height: auto; /* On laisse le contenu s'étendre */
+                padding-top: 50px; /* On réduit l'espace pour pas que le logo soit géant */
+            }
+            .action-zone {
+                padding-bottom: 50px; /* On laisse de l'air en bas pour le scroll */
+            }
+        }
 
     </style>
 </head>
