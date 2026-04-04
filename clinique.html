@@ -23,6 +23,24 @@
         }
         .back-btn:hover { background: #00d2ff; color: #000; box-shadow: 0 0 15px #00d2ff; }
 
+        /* BOUTON CONTACT FLOTTANT */
+        .contact-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            padding: 12px 25px; background: #00d2ff;
+            color: #000; text-decoration: none; border-radius: 50px;
+            font-weight: 800; font-size: 13px; letter-spacing: 2px;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+            z-index: 1000; transition: all 0.3s ease;
+            animation: pulseContact 2s infinite;
+        }
+        .contact-btn:hover { transform: scale(1.1); box-shadow: 0 0 25px #00d2ff; }
+        
+        @keyframes pulseContact {
+            0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 210, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+        }
+
         .container {
             max-width: 1100px; margin: 0 auto; padding: 60px 20px;
             text-align: center;
@@ -127,6 +145,7 @@
 </head>
 <body>
 
+    <a href="contact.html" class="contact-btn">CONTACT</a>
     <a href="index.html" class="back-btn">← Cockpit</a>
 
     <div class="container">
@@ -173,14 +192,3 @@
 
                 <div class="feature">
                     <div class="feature-icon">🛰️</div>
-                    <div class="feature-text">
-                        <strong>Mises à jour & Sécurité</strong>
-                        <span>Installation propre des pilotes et sécurisation de votre navigation pour une tranquillité totale.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
